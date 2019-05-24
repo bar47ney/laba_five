@@ -5,8 +5,15 @@ package com.example.demo;
  */
 public class Information
 {
-    private int distance;
-    private int speed;
+    private double distance;
+    private double speed;
+    private double time;
+
+    Information() {
+        distance =0;
+        speed =0;
+        time =0;
+    }
 
     public void setSpeed(int speed)
 {
@@ -18,13 +25,26 @@ public class Information
         this.distance = distance;
     }
 
-   public  int getSpeed()
+   public  double getSpeed()
     {
         return speed;
     }
 
-    public int getDistance()
+    public double getDistance()
     {
        return distance;
     }
+
+    public double getTime()
+    {
+        return time;
+    }
+
+
+    public void calculate()
+    {
+        time = distance / speed;
+    }
+
+
 }
