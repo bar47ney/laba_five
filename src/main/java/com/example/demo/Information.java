@@ -9,7 +9,7 @@ public class Information
     private double speed;
     private double time;
 
-    Information() {
+    public Information() {
         distance =0;
         speed =0;
         time =0;

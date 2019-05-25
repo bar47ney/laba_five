@@ -4,6 +4,8 @@ package com.example.demo;
  * Created by Сергей on 27.04.2019.
  */
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static javax.swing.text.html.FormSubmitEvent.MethodType.POST;
+
 @RestController
 public class DemoApplicationController {
 
@@ -23,15 +27,19 @@ public class DemoApplicationController {
    {
         return "I`am Batman!";
    }*/
+
+
    @RequestMapping("/")
-    public double main() {
+    public String main(@RequestBody ArrayList<Information> list) {
 
-        ArrayList<Information> list = new ArrayList<Information>();
+        String time = new String();
 
-        Information valee = new Information();
-        valee.setDistance(100);
-        valee.setSpeed(500);
-        list.add(valee);
+        ArrayList<Double> list_one = new ArrayList<Double>();
+       // list = patient ;
+       // Information valee = new Information();
+       // valee.setDistance(200);
+        //valee.setSpeed(2500);
+       // list.add(valee);
 
         list.parallelStream()
                 .filter(x->x.getSpeed()>0)
@@ -41,6 +49,7 @@ public class DemoApplicationController {
         Iterator<Information> iter = list.iterator();
 
         Stream.Builder<Double> streamBuider = Stream.<Double>builder();
+
         while(iter.hasNext()) {
             Information val = iter.next();
             streamBuider.accept(val.getTime());
@@ -48,6 +57,7 @@ public class DemoApplicationController {
         streamBuider
                 .build()
                 .forEach(System.out::println);
-        return valee.getTime();
+
+        return "God Job,Man!";
     }
 }
