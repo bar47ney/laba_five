@@ -15,12 +15,12 @@ public class Information
         time =0;
     }
 
-    public void setSpeed(int speed)
+    public void setSpeed(double speed)
 {
     this.speed = speed;
 }
 
-   public void setDistance(int distance)
+   public void setDistance(double distance)
     {
         this.distance = distance;
     }
